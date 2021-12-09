@@ -31,5 +31,75 @@ namespace CSC236_Jpaynter_Final_Project
                 core.frontDoor = false;
             }
         }
+
+        private void backDoorBtn_Click(object sender, EventArgs e)
+        {
+            if (core.backDoor == false)
+            {
+                backDoorProgressBar.Value = 1;
+                core.backDoor = true;
+            }
+            else
+            {
+                backDoorProgressBar.Value = 0;
+                core.backDoor = false;
+            }
+        }
+
+        private void garageDoorBtn_Click(object sender, EventArgs e)
+        {
+            if (core.garageDoor == false)
+            {
+                garageDoorProgressBar.Value = 1;
+                core.garageDoor = true;
+            }
+            else
+            {
+                garageDoorProgressBar.Value = 0;
+                core.garageDoor = false;
+            }
+        }
+
+        private void kitchenLightsBtn_Click(object sender, EventArgs e)
+        {
+            if (core.kitchenLights == false)
+            {
+                kitchenLightsProgressBar.Value = 1;
+                core.kitchenLights = true;
+            }
+            else
+            {
+                kitchenLightsProgressBar.Value = 0;
+                core.kitchenLights = false;
+            }
+        }
+
+        private void familyRoomLightsBtn_Click(object sender, EventArgs e)
+        {
+            if (core.familyRoomLights == false)
+            {
+                familyRoomLightsProgress.Value = 1;
+                core.familyRoomLights = true;
+            }
+            else
+            {
+                familyRoomLightsProgress.Value = 0;
+                core.familyRoomLights = false;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (core.masterBedroomLight == false)
+            {
+                masterLightsProgressBar.Value = 1;
+                core.masterBedroomLight = true;
+            }
+            else
+            {
+                masterLightsProgressBar.Value = 0;
+                core.masterBedroomLight = false;
+            }
+        }
     }
 }

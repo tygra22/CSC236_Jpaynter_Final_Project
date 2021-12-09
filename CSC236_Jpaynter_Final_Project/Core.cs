@@ -20,7 +20,7 @@ namespace CSC236_Jpaynter_Final_Project
         void setAge(string age);
     }
 
-    struct user : ProfileActions
+    public struct user : ProfileActions
     {
         string name;
         string relationship;
@@ -69,9 +69,7 @@ namespace CSC236_Jpaynter_Final_Project
         private static Core instance = null;
         private static readonly object padlock = new object();
         private List<user> users = new List<user>();
-        public event EventHandler StatusChanged; // Delegate declared
         public event EventHandler UserChanged; // Delegate declared
-
 
         //Constructor
         Core()
@@ -83,8 +81,6 @@ namespace CSC236_Jpaynter_Final_Project
             familyRoomLights = false;
             masterBedroomLight = false;
             bedroomLightOne = false;
-            fDoorLock = false;
-            bDoorLock = false;
         }
         // Constructor for subclass to extend?
         protected Core(int number)
@@ -112,6 +108,11 @@ namespace CSC236_Jpaynter_Final_Project
         /************************************************
          * Public Getters and Setters for all attributes:
          ************************************************/
+        public List<user> getUsers()   
+        {
+            return this.users;
+        }
+
         public bool frontDoor
         {
             get; set;
@@ -144,16 +145,6 @@ namespace CSC236_Jpaynter_Final_Project
             get; set;
         }
 
-        public bool fDoorLock
-        {
-            get; set;
-        }
-
-        public bool bDoorLock
-        {
-            get; set;
-        }
-
         /************************************************
          ************************************************/
 
@@ -168,6 +159,7 @@ namespace CSC236_Jpaynter_Final_Project
             newUser.setRelationship(relationship);
             newUser.setAge(age);
             this.users.Add(newUser);
+            OnUserChange(EventArgs.Empty);
         }
 
         public void removeUser(int index)
@@ -177,15 +169,8 @@ namespace CSC236_Jpaynter_Final_Project
                 if (user == index)
                 {
                     users.Remove(this.users[index]);
-                    OnUserChange(EventArgs.Empty);
                 }
             }
-        }
-
-        // OnStatusChanged is an event handler with only one argument
-        public void OnStatusChange(EventArgs e)
-        {
-            StatusChanged(this, e);
         }
 
         // OnUserChanged is an event handler with only one argument

@@ -55,13 +55,20 @@ namespace CSC236_Jpaynter_Final_Project
         UserManagerForm userManagerForm = new UserManagerForm();
         private void ManageUsersBtn_Click(object sender, EventArgs e)
         {
-            if(userManagerForm.Visible)
+            if (userManagerForm.Visible)
             {
                 userManagerForm.Hide();
             } else
             {
                 userManagerForm.Show();
             }
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //exit application when form is closed
+
+            Application.Exit();
         }
     }
 }

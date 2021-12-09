@@ -12,9 +12,7 @@ namespace CSC236_Jpaynter_Final_Project
 {
     class LogEntries
     {
-        //public event EventHandler ;
-
-        public string[] logArray = new string[5];
+        public string[] logArray = new string[50];
         public int idx = 0;
         public LogEntries()
         {

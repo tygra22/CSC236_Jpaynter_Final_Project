@@ -13,6 +13,8 @@ namespace CSC236_Jpaynter_Final_Project
     public partial class UserManagerForm : Form
     {
         Core core = Core.Instance;
+        private static LogEntries logBook = new LogEntries();
+        UserEventListener listener = new UserEventListener(logBook);
         public UserManagerForm()
         {
             InitializeComponent();
@@ -30,12 +32,13 @@ namespace CSC236_Jpaynter_Final_Project
                 return;
             }
             core.createNewUser(name, relationship, age);
-            userInformation = $"Name: {name}  Relationship: {relationship}  Age: {age} ";
+            userInformation = $"Name: {name},  Relationship: {relationship},  Age: {age},";
             userListBox.Items.Add(userInformation);
 
             nameTextBox.Clear();
             relationshipTextBox.Clear();
             ageTextBox.Clear();
+            Console.WriteLine("USER ADDED");
         }
 
         private void removeUserBtn_Click(object sender, EventArgs e)
